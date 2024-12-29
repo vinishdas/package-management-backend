@@ -187,10 +187,10 @@ app.post('/api/admin/student-table/add', (req, res) => {
 
 // Add a new teacher
 app.post('/api/admin/teacher-table/add', (req, res) => {
-  const { teacher_id, teacher_name, password, role } = req.body;
-  const query = 'INSERT INTO teacher_table (teacher_id, teacher_name, password, role) VALUES (?, ?, ?, ?)';
+  const { teacher_id, teacher_name,year_joined,phone, password, role } = req.body;
+  const query = 'INSERT INTO teacher_table (teacher_id, teacher_name,year_joined,phone, password, role) VALUES (?,?,?, ?, ?, ?)';
   
-  db.query(query, [teacher_id, teacher_name, password, role], (err, results) => {
+  db.query(query, [teacher_id, teacher_name,year_joined,phone, password, role], (err, results) => {
     if (err) {
       console.error(err);
       return res.status(500).json({ error: 'Failed to add teacher' });
@@ -201,10 +201,10 @@ app.post('/api/admin/teacher-table/add', (req, res) => {
 
 // Add a new receptionist
 app.post('/api/admin/receptionist-table/add', (req, res) => {
-  const { receptionist_id, receptionist_name, receptionist_phone, password, role } = req.body;
-  const query = 'INSERT INTO receptionist_table (receptionist_id, receptionist_name, receptionist_phone, password, role) VALUES (?, ?, ?, ?, ?)';
+  const { receptionist_id, receptionist_name,year_joined, receptionist_phone, password, role } = req.body;
+  const query = 'INSERT INTO receptionist_table (receptionist_id, receptionist_name,year_joined,receptionist_phone, password, role) VALUES (?, ?, ?, ?, ?,?)';
   
-  db.query(query, [receptionist_id, receptionist_name, receptionist_phone, password, role], (err, results) => {
+  db.query(query, [receptionist_id, receptionist_name,year_joined,  receptionist_phone, password, role], (err, results) => {
     if (err) {
       console.error(err);
       return res.status(500).json({ error: 'Failed to add receptionist' });
