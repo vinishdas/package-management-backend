@@ -202,7 +202,7 @@ app.post('/api/admin/teacher-table/add', (req, res) => {
 // Add a new receptionist
 app.post('/api/admin/receptionist-table/add', (req, res) => {
   const { receptionist_id, receptionist_name,year_joined, receptionist_phone, password, role } = req.body;
-  const query = 'INSERT INTO receptionist_table (receptionist_id, receptionist_name,year_joined,receptionist_phone, password, role) VALUES (?, ?, ?, ?, ?,?)';
+  const query = 'INSERT INTO receptionist_table (receptionist_id, receptionist_name,year_joined, phone, password, role) VALUES (?, ?, ?, ?, ?,?)';
   
   db.query(query, [receptionist_id, receptionist_name,year_joined,  receptionist_phone, password, role], (err, results) => {
     if (err) {
